@@ -16,5 +16,28 @@ db = SQLAlchemy(app)
 
 ```
 
+## Parts of code
+
+```
+def artist(artist_id):
+    artist = controller.get_artist(artist_id)
+    return render_template('artist.html', artist=artist)
+
+
+def create():
+    if request.method == 'POST':
+        name = request.form['name']
+        lastname = request.form['lastname']
+
+
+        controller.create_artist(name, lastname)
+        return redirect(url_for('index'))
+
+    return render_template('create.html')
+
+
+
+```
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
