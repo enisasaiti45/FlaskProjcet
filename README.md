@@ -7,7 +7,8 @@ pip install -r requirements.txt
 
 ## Usage
 
-```from flask import Flask, render_template, request, url_for, flash, redirect, Response
+```python
+from flask import Flask, render_template, request, url_for, flash, redirect, Response
 return render_template('artist.html', albums=albums)
 
 from flask_sqlalchemy import SQLAlchemy
@@ -18,7 +19,7 @@ db = SQLAlchemy(app)
 
 ## Parts of code
 
-```
+```python
 def artist(artist_id):
     artist = controller.get_artist(artist_id)
     return render_template('artist.html', artist=artist)
@@ -29,14 +30,10 @@ def create():
         name = request.form['name']
         lastname = request.form['lastname']
 
-
         controller.create_artist(name, lastname)
         return redirect(url_for('index'))
 
     return render_template('create.html')
-
-
-
 ```
 
 ## Contributing
