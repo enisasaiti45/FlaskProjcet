@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} ArtCon {% endblock %}</h1>
+    {% for artist in artists %}
+        <a href="{{ url_for('artist', artist_id=artist['id']) }}">
+            <h2>{{ artist['name']}} {{artist['lastname'] }}</h2>
+        </a>
+        <a href="{{ url_for('edit', id=artist['id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
+        <hr>
+
+    {% endfor %}
+{% endblock %}

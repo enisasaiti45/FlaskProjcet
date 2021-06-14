@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ artist['name'] }} {{ artist ['lastname'] }} {% endblock %}</h2>
+
+
+
+    {% for album in albums %}
+        <a href="{{ url_for('album_id', album_id=album['id']) }}">
+            <h2>{{ album['album_name']}} </h2>
+        </a>
+    {% endfor %}
+
+
+{% endblock %}
